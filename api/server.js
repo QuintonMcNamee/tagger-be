@@ -2,9 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const helmet = require('helmet')
 const messageRouter = require('./messages/message-router')
-// const messageRouter2 = require('./messages/message-router2')
-const tagRouter = require('./tags/tag-router')
-const googleAuthRouter = require('./auth/google.js')
+// const googleAuthRouter = require('./auth/google.js')
 
 require('dotenv').config()
 
@@ -17,10 +15,8 @@ server.use(express.json())
 
 //ROUTERS
 
-// server.use('/', messageRouter2)
-server.use('/googleAuthRouter', googleAuthRouter)
+// server.use('/googleAuthRouter', googleAuthRouter)
 server.use('/', messageRouter)
-server.use('/', tagRouter)
 
 //Use server function
 server.use(function(req, res, next) {
