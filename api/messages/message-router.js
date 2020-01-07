@@ -168,25 +168,23 @@ router.post('/postfe', (req, res) => {
                         }
                       })
                     }
-
-                    if(res.data.tag === "Productivity") {
-                      gmail.users.labels.list({
-                        userId: 'me'
+                    if(res.datea.tag === "Productivity") {
+                      gmail.user.labels.list({
+                        usersId: 'me'
                       }, (err, res) => {
-                        let productivity = res.data.labels.find(productivity => productivity.name === 'tagger_Productivity')
-                        gmail.users.messages.modify({
-                          userId: 'me',
+                        let productivity = res.data.labels.find(productivity => productivity.name === 'tagger_Producrtivity')
+                          gmail.users.messages.modify({
+                          userId: 'me', 
                           id: idPlaceHolder,
-                          resource: 
-                          {
-                            "addLabelIds": [
+                          resouces:{
+                            "addLabelIds":[
                               productivity.id
                             ]
                           }
                         }), (err, res) => {
                           console.log(res)
                         }
-                      })
+                        })
                     }
 
                     if(res.data.tag === "Security") {
